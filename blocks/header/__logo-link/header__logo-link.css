@@ -1,0 +1,9 @@
+.header__logo-link {
+  transition: .5s;
+}
+
+.header__logo-link:hover {
+  cursor: url(../../../images/cursor-pointer.svg),
+    pointer;
+  opacity: 0.8;
+}

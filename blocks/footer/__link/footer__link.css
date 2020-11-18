@@ -1,0 +1,21 @@
+.footer__link {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5rem;
+  line-height: 1;
+  text-decoration: none;
+  color: #fff;
+  transition: .5s;
+}
+
+.footer__link:hover {
+  cursor: url(../../../images/cursor-pointer.svg), pointer;
+  opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+  .footer__link {
+    font-size: 1rem;
+    line-height: 1.125;
+  }
+}

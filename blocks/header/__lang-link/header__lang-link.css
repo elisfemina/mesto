@@ -1,0 +1,28 @@
+.header__lang-link {
+  font-family: 'Inter',
+    'Segoe UI',
+    'Roboto',
+    'Helvetica',
+    'San Francisco',
+    'sans-serif';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.1;
+  color: #fff;
+  margin: 0 0 0 1.125rem;
+  text-decoration-line: none;
+  transition: .5s;
+}
+
+.header__lang-link:hover {
+  cursor: url(../../../images/cursor-pointer.svg), pointer;
+  opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+  .header__lang-link {
+    font-size: 1.5rem;
+    line-height: 1.16661;
+  }
+}
