@@ -1,0 +1,9 @@
+.body__header {
+  margin: 1.75rem auto 2.625rem;
+}
+
+@media (min-width: 768px) {
+  .body__header {
+    margin: 2.813rem auto 2.5rem;
+  }
+}

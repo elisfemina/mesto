@@ -1,9 +1,10 @@
 .header__logo {
-  height: 2.625rem;
+  height: 1.525rem;
 }
 
 @media (min-width: 768px) {
   .header__logo {
-    height: 3.25rem;
+    height: 2.063rem;
+    padding-bottom: 2.563rem;
   }
 }
