@@ -17,13 +17,14 @@
 @import url(../blocks/header/__lang-link/header__lang-link.css);
 @import url(../blocks/header/__lang-link_active/header__lang-link_active.css);
 
-/* Блок "lead" */
-@import url(../blocks/lead/lead.css);
-@import url(../blocks/lead/__title/lead__title.css);
-@import url(../blocks/lead/__subtitle/lead__subtitle.css);
-@import url(../blocks/lead/__figure/lead__figure.css);
-@import url(../blocks/lead/__image/lead__image.css);
-@import url(../blocks/lead/__caption/lead__caption.css);
+/* Блок "profile" */
+@import url(../blocks/profile/profile.css);
+@import url(../blocks/profile/__info/profile__info.css);
+@import url(../blocks/profile/__name/profile__name.css);
+@import url(../blocks/profile/__occupation/profile__occupation.css);
+@import url(../blocks/profile/__info/profile__info.css);
+@import url(../blocks/add-button/add-button.css);
+@import url(../blocks/add-button/__icon/add-button__icon.css);
 
 /* Секция intro "Чего мы там не видели?"  */
 @import url(../blocks/intro/intro.css);

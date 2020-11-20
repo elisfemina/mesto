@@ -1,3 +1,11 @@
 .profile {
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  font-family: 'Inter',
+    'Segoe UI',
+    'Roboto',
+    'Helvetica',
+    'San Francisco',
+    'sans-serif';
+  color: #fff;
 }
