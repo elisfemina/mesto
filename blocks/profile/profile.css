@@ -1,6 +1,6 @@
 .profile {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  grid-template-columns: 1fr;
   font-family: 'Inter',
     'Segoe UI',
     'Roboto',
@@ -8,4 +8,14 @@
     'San Francisco',
     'sans-serif';
   color: #fff;
+  justify-items: center;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .profile {
+    grid-template-columns: max-content max-content 1fr;
+    max-width: 1280px;
+    padding: 0 1.188rem;
+  }
 }

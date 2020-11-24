@@ -1,0 +1,21 @@
+.add-button {
+  border: 2px solid #FFF;
+  box-sizing: border-box;
+  border-radius: 2px;
+  width: 17.625rem;
+  height: 3.125rem;
+  background-color: transparent;
+  transition: 0.5s;
+}
+
+@media (min-width: 768px) {
+  .add-button {
+    width: 9.375rem;
+    justify-self: end;
+  }
+}
+
+.add-button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}

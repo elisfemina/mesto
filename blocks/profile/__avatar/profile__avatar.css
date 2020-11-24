@@ -1,0 +1,9 @@
+.profile__avatar {
+  margin: 0 0 1.625rem;
+}
+
+@media (min-width: 768px) {
+  .profile__avatar {
+    margin: 0 1.875rem 0 0;
+  }
+}
