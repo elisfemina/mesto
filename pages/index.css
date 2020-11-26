@@ -24,35 +24,15 @@
 @import url(../blocks/add-button/add-button.css);
 @import url(../blocks/add-button/__icon/add-button__icon.css);
 
-/* Секция intro "Чего мы там не видели?"  */
-@import url(../blocks/intro/intro.css);
-@import url(../blocks/intro/__title/intro__title.css);
-@import url(../blocks/intro/__text/intro__text.css);
-@import url(../blocks/intro/__list/intro__list.css);
-@import url(../blocks/intro/__span-item/intro__span-item.css);
-@import url(../blocks/content/__intro/content__intro.css);
-
-/* Секция photo-grid  */
-@import url(../blocks/photo-grid/photo-grid.css);
-@import url(../blocks/photo-grid/__item/photo-grid__item.css);
-
-/* Секция places  */
-@import url(../blocks/places/places.css);
-@import url(../blocks/places/__list/places__list.css);
-@import url(../blocks/place/place.css);
-@import url(../blocks/place/__title/place__title.css);
-@import url(../blocks/place/__website/place__website.css);
-@import url(../blocks/place/__url-heading/place__url-heading.css);
-@import url(../blocks/place/__link/place__link.css);
-@import url(../blocks/place/__image/place__image.css);
-@import url(../blocks/place/__paragraph/place__paragraph.css);
-
-/* Секция cover  */
-
-@import url(../blocks/cover/cover.css);
-@import url(../blocks/cover/__overlay/cover__overlay.css);
-@import url(../blocks/cover/__title/cover__title.css);
-@import url(../blocks/cover/__paragraph/cover__paragraph.css);
+/* Секция cards */
+@import url(../blocks/cards/cards.css);
+@import url(../blocks/cards/__box/cards__box.css);
+@import url(../blocks/card/card.css);
+@import url(../blocks/card/__figure/card__figure.css);
+@import url(../blocks/card/__image/card__image.css);
+@import url(../blocks/card/__caption/card__caption.css);
+@import url(../blocks/card/__subtitle/card__subtitle.css);
+@import url(../blocks/card/__like/card__like.css);
 
 /* footer  */
 
