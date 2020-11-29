@@ -5,16 +5,12 @@
     'Helvetica',
     'San Francisco',
     'sans-serif';
-  color: #fff;
-  justify-self: start;
-  max-width: 1184px;
+  color: #545454;
+  max-width: 55rem;
+  width: 100%;
+  margin: 0 auto;
 }
 
 @media (min-width: 768px) {
-  .footer {
-    width: 100%;
-    display: grid;
-    grid-template-columns: auto auto;
-    justify-self: center;
-  }
+  .footer {}
 }

@@ -1,4 +1,11 @@
 .cards__box {
+  display: grid;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
   list-style: none;
+  row-gap: 20px;
+  column-gap: 17px;
+  grid-template-columns: repeat(auto-fit, minmax(17.625rem, 1fr));
+  justify-items: center;
 }

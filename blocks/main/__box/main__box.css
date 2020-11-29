@@ -1,9 +1,8 @@
 .main__box {
-  margin: 0 1.188rem 2.25rem;
+  margin-left: 5.9375vw;
+  margin-right: 5.9375vw;
 }
 
 @media (min-width: 768px) {
-  .main__box {
-    margin: 0 auto 3.125rem;
-  }
+  .main__box {}
 }

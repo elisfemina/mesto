@@ -18,7 +18,7 @@
   <!-- Блок profile -->
 
   <main class="main">
-    <section class="profile main__box">
+    <section class="profile main__profile main__box">
       <img class="profile__avatar" src="./images/Avatar.png" alt="Фото профиля">
       <div class="profile__info">
         <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -88,20 +88,33 @@
           <figure class="card__figure">
             <img class="card__image" src="./images/Karachaevsk.jpg" alt="Вид местности">
             <figcaption class="card__caption">
-              <p class="card__subtitle">Карачаево-Ч...</p>
+              <p class="card__subtitle">Карачаево-Черкессия</p>
               <button class="card__like"></button>
             </figcaption>
           </figure>
         </li>
       </ul>
-
-
     </section>
   </main>
 
-  <footer class="footer">
+  <!-- footer -->
 
+  <footer class="footer">
+    <p class="footer__copyright main__box">&copy; 2020 Mesto Russia</p>
   </footer>
+
+  <!-- popup -->
+
+  <div class="popup popup_opened">
+
+    <form class="popup__container" action="/my-handling-form-page">
+      <p class="popup__edit">Редактировать профиль</p>
+      <input class="popup__input" type="text" name="name" placeholder="Жак-Ив Кусто">
+      <input class="popup__input" type="text" name="name" placeholder="Исследователь океана">
+      <button class="popup__button">Сохранить</button>
+      <button title="Close (Esc)" type="button" class="popup__close"></button>
+    </form>
+  </div>
 </body>
 
 </html>
