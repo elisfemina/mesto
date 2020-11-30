@@ -21,8 +21,12 @@
     <section class="profile main__profile main__box">
       <img class="profile__avatar" src="./images/Avatar.png" alt="Фото профиля">
       <div class="profile__info">
-        <h1 class="profile__name">Жак-Ив Кусто</h1>
-        <p class="profile__occupation">Исследователь океана</p>
+        <div class="profile__info-inner">
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <button class="profile__info-edit"></button>
+        </div>
+        <p class="profile__job">Исследователь океана</p>
+
       </div>
       <button class="add-button">
         <img src="./images/button-plus.svg" alt="" class="add-button__icon">
@@ -105,16 +109,19 @@
 
   <!-- popup -->
 
-  <div class="popup popup_opened">
+  <div class="popup">
 
-    <form class="popup__container" action="/my-handling-form-page">
+    <div class="popup__container">
+      <button title="Close (Esc)" type="button" class="popup__close-button"></button>
       <p class="popup__edit">Редактировать профиль</p>
-      <input class="popup__input" type="text" name="name" placeholder="Жак-Ив Кусто">
-      <input class="popup__input" type="text" name="name" placeholder="Исследователь океана">
-      <button class="popup__button">Сохранить</button>
-      <button title="Close (Esc)" type="button" class="popup__close"></button>
-    </form>
+      <form class="form">
+        <input class="form__input form__name" type="text" name="name" placeholder="">
+        <input class="form__input form__job" type="text" name="name" placeholder="">
+        <button class="form__button" type="submit">Сохранить</button>
+      </form>
+    </div>
   </div>
+  <script src="./script/index.js"></script>
 </body>
 
 </html>

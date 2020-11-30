@@ -1,4 +1,4 @@
-.popup__button {
+.form__button {
   width: 100%;
   height: 46px;
   background: #000000;
@@ -16,13 +16,13 @@
   transition: 0.5s;
 }
 
-.popup__button:hover {
+.form__button:hover {
   background: rgba(0, 0, 0, 0.8);
   cursor: pointer;
 }
 
 @media (min-width: 1280px) {
-  .popup__button {
+  .form__button {
     height: 50px;
   }
 }

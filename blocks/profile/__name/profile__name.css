@@ -7,33 +7,12 @@
   margin: 0 0 0.875rem;
 }
 
-.profile__name::after {
-  content: "";
-  background-image: url(../../../images/Edit-Button.svg);
-  height: 1.125rem;
-  width: 1.125rem;
-  display: inline-block;
-  background-repeat: no-repeat;
-  vertical-align: middle;
-  margin-left: 0.625rem;
-  background-size: cover;
-  transition: 0.5s;
-}
 
-.profile__name:hover::after {
-  opacity: 0.6;
-  cursor: pointer;
-}
 
 @media (min-width: 768px) {
   .profile__name {
     font-size: 2.625rem;
     line-height: 1.1428;
-  }
-
-  .profile__name::after {
-    height: 1.5rem;
-    width: 1.5rem;
-    margin-left: 1.125rem;
+    margin: 0 0 1rem;
   }
 }
