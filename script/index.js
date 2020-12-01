@@ -3,8 +3,8 @@ let popupNode = document.querySelector('.popup');
 let popupCloseButtonNode = document.querySelector('.popup__close-button');
 let profileName = document.querySelector('.profile__name');
 let profileJob = document.querySelector('.profile__job');
-let formName = document.querySelector('.form__input_name');
-let formJob = document.querySelector('.form__input_job');
+let formName = document.querySelector('.form__input_edit_name');
+let formJob = document.querySelector('.form__input_edit_job');
 let formElement = document.querySelector('.form');
 
 function handleProfileInfoEditClick() {
@@ -25,7 +25,7 @@ function formSubmitHandler (evt) {
     evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
     profileName.textContent = formName.value;
     profileJob.textContent = formJob.value;
-    popupNode.classList.remove('popup_opened');
+    handlePopupCloseButtonClick();
 }
 
 formElement.addEventListener('submit', formSubmitHandler);
