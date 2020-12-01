@@ -1,13 +1,13 @@
 .profile__name {
-  font-style: normal;
   font-weight: 500;
   font-size: 1.688rem;
   line-height: 1.2222;
   text-align: center;
   margin: 0 0 0.875rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
-
-
 
 @media (min-width: 768px) {
   .profile__name {

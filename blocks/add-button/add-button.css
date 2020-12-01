@@ -1,11 +1,16 @@
 .add-button {
   border: 2px solid #FFF;
   box-sizing: border-box;
+  padding: 0;
   border-radius: 2px;
-  width: 17.625rem;
-  height: 3.125rem;
+  width: 100%;
+  max-width: 17.625rem;
+  min-height: 3.125rem;
   background-color: transparent;
   transition: 0.5s;
+  background-image: url(../../images/button-plus.svg);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 @media (min-width: 768px) {

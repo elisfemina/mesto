@@ -1,5 +1,6 @@
 .profile__avatar {
   margin: 0 0 1.625rem;
+  border-radius: 50%;
 }
 
 @media (min-width: 768px) {

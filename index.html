@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mesto</title>
-  <link rel="shortcut icon" href="./images/russia-map-favicon.png" type="image/png">
   <link rel="stylesheet" href="./pages/index.css">
 </head>
 
@@ -18,19 +17,17 @@
   <!-- Блок profile -->
 
   <main class="main">
-    <section class="profile main__profile main__box">
+    <section class="profile main__profile">
       <img class="profile__avatar" src="./images/Avatar.png" alt="Фото профиля">
       <div class="profile__info">
         <div class="profile__info-inner">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <button class="profile__info-edit"></button>
+          <button aria-label="Редактировать профиль" class="profile__info-edit" type="button"></button>
         </div>
         <p class="profile__job">Исследователь океана</p>
 
       </div>
-      <button class="add-button">
-        <img src="./images/button-plus.svg" alt="иконка кнопки" class="add-button__icon">
-      </button>
+      <button aria-label="Добавить фото" class="add-button" type="button"></button>
     </section>
 
     <!-- Секция cards -->
@@ -42,8 +39,8 @@
           <figure class="card__figure">
             <img class="card__image" src="./images/Karachaevsk.jpg" alt="Вид местности">
             <figcaption class="card__caption">
-              <p class="card__subtitle">Карачаевск</p>
-              <button class="card__like"></button>
+              <h2 class="card__subtitle">Карачаевск</h2>
+              <button aria-label="Like" class="card__like" type="button"></button>
             </figcaption>
           </figure>
         </li>
@@ -52,8 +49,8 @@
           <figure class="card__figure">
             <img class="card__image" src="./images/mountain-elbrus.jpg" alt="Вид местности">
             <figcaption class="card__caption">
-              <p class="card__subtitle">Гора Эльбрус</p>
-              <button class="card__like"></button>
+              <h2 class="card__subtitle">Гора Эльбрус</h2>
+              <button aria-label="Like" class="card__like" type="button"></button>
             </figcaption>
           </figure>
         </li>
@@ -62,8 +59,8 @@
           <figure class="card__figure">
             <img class="card__image" src="./images/dombay.jpg" alt="Вид местности">
             <figcaption class="card__caption">
-              <p class="card__subtitle">Домбай</p>
-              <button class="card__like"></button>
+              <h2 class="card__subtitle">Домбай</h2>
+              <button aria-label="Like" class="card__like" type="button"></button>
             </figcaption>
           </figure>
         </li>
@@ -72,8 +69,8 @@
           <figure class="card__figure">
             <img class="card__image" src="./images/mountain-elbrus.jpg" alt="Вид местности">
             <figcaption class="card__caption">
-              <p class="card__subtitle">Гора Эльбрус</p>
-              <button class="card__like"></button>
+              <h2 class="card__subtitle">Гора Эльбрус</h2>
+              <button aria-label="Like" class="card__like" type="button"></button>
             </figcaption>
           </figure>
         </li>
@@ -82,8 +79,8 @@
           <figure class="card__figure">
             <img class="card__image" src="./images/dombay.jpg" alt="Вид местности">
             <figcaption class="card__caption">
-              <p class="card__subtitle">Домбай</p>
-              <button class="card__like"></button>
+              <h2 class="card__subtitle">Домбай</h2>
+              <button aria-label="Like" class="card__like" type="button"></button>
             </figcaption>
           </figure>
         </li>
@@ -92,8 +89,8 @@
           <figure class="card__figure">
             <img class="card__image" src="./images/Karachaevsk.jpg" alt="Вид местности">
             <figcaption class="card__caption">
-              <p class="card__subtitle">Карачаево-Черкессия</p>
-              <button class="card__like"></button>
+              <h2 class="card__subtitle">Карачаево-Черкессия</h2>
+              <button aria-label="Like" class="card__like" type="button"></button>
             </figcaption>
           </figure>
         </li>
@@ -112,11 +109,11 @@
   <div class="popup">
 
     <div class="popup__container">
-      <button title="Close (Esc)" type="button" class="popup__close-button"></button>
-      <p class="popup__edit">Редактировать профиль</p>
-      <form class="form">
-        <input class="form__input form__name" type="text" name="name" placeholder="">
-        <input class="form__input form__job" type="text" name="name" placeholder="">
+      <button aria-label="Закрыть" title="Close (Esc)" type="button" class="popup__close-button"></button>
+      <h3 class="popup__edit">Редактировать профиль</h3>
+      <form class="form" name="editProfile">
+        <input class="form__input form__input_name" type="text" name="name" placeholder="">
+        <input class="form__input form__input_job" type="text" name="job" placeholder="">
         <button class="form__button" type="submit">Сохранить</button>
       </form>
     </div>

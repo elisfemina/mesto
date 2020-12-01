@@ -1,17 +1,8 @@
 .card {
-  width: 17.625rem;
-  height: 22.563rem;
+  max-width: 17.625rem;
+  min-height: 22.563rem;
   background-color: #fff;
-  font-family: 'Inter',
-    'Segoe UI',
-    'Roboto',
-    'Helvetica',
-    'San Francisco',
-    'sans-serif';
+  font-family: 'Inter', 'Arial', 'sans-serif';
   font-style: normal;
-  font-weight: 900;
-  font-size: 1.5rem;
-  line-height: 1.2083;
-  color: #000000;
   border-radius: 10px;
 }
