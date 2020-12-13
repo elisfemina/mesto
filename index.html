@@ -36,6 +36,7 @@
       <ul class="cards__box">
 
         <li class="card">
+          <button aria-label="Удалить" class="card__trash" type="button"></button>
           <figure class="card__figure">
             <img class="card__image" src="./images/Karachaevsk.jpg" alt="Вид местности">
             <figcaption class="card__caption">
@@ -107,7 +108,6 @@
   <!-- popup -->
 
   <div class="popup">
-
     <div class="popup__container">
       <button aria-label="Закрыть" title="Close (Esc)" type="button" class="popup__close-button"></button>
       <h3 class="popup__edit">Редактировать профиль</h3>
@@ -118,6 +118,33 @@
       </form>
     </div>
   </div>
+
+  <div class="popup">
+    <div class="popup__container">
+      <button aria-label="Закрыть" title="Close (Esc)" type="button" class="popup__close-button"></button>
+      <h3 class="popup__edit">Новое место</h3>
+      <form class="form" name="edit-profile">
+        <input class="form__input form__input_edit_name-place" type="text" name="name-place" placeholder="Название">
+        <input class="form__input form__input_edit_link-place" type="text" name="link-place"
+          placeholder="Ссылка на кртинку">
+        <button class="form__button" type="submit">Создать</button>
+      </form>
+    </div>
+  </div>
+
+  <template>
+    <li class="card">
+      <button aria-label="Удалить" class="card__trash" type="button"></button>
+      <figure class="card__figure">
+        <img class="card__image" src="./images/dombay.jpg" alt="Вид местности">
+        <figcaption class="card__caption">
+          <h2 class="card__subtitle">Домбай</h2>
+          <button aria-label="Like" class="card__like" type="button"></button>
+        </figcaption>
+      </figure>
+    </li>
+  </template>
+
   <script src="./script/index.js"></script>
 </body>
 

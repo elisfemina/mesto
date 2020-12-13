@@ -1,4 +1,5 @@
 .card {
+  position: relative;
   max-width: 17.625rem;
   min-height: 22.563rem;
   background-color: #fff;
