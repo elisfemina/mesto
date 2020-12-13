@@ -107,7 +107,7 @@
 
   <!-- popup -->
 
-  <div class="popup">
+  <div class="popup popup_act_edit-profile">
     <div class="popup__container">
       <button aria-label="Закрыть" title="Close (Esc)" type="button" class="popup__close-button"></button>
       <h3 class="popup__edit">Редактировать профиль</h3>
@@ -119,14 +119,16 @@
     </div>
   </div>
 
-  <div class="popup">
+  <!-- popup add card -->
+
+  <div class="popup popup_act_add-card">
     <div class="popup__container">
       <button aria-label="Закрыть" title="Close (Esc)" type="button" class="popup__close-button"></button>
       <h3 class="popup__edit">Новое место</h3>
       <form class="form" name="edit-profile">
-        <input class="form__input form__input_edit_name-place" type="text" name="name-place" placeholder="Название">
-        <input class="form__input form__input_edit_link-place" type="text" name="link-place"
-          placeholder="Ссылка на кртинку">
+        <input class="form__input form__input_edit_card-title" type="text" name="card-title" placeholder="Название">
+        <input class="form__input form__input_edit_card-link-image" type="text" name="card-link-image"
+          placeholder="Ссылка на картинку">
         <button class="form__button" type="submit">Создать</button>
       </form>
     </div>

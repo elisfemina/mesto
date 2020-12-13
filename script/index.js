@@ -25,15 +25,23 @@ const initialCards = [
     }
 ];
 
-let profileInfoEdit = document.querySelector('.profile__info-edit');
-let popupNode = document.querySelector('.popup');
-let popupCloseButtonNode = document.querySelector('.popup__close-button');
-let profileName = document.querySelector('.profile__name');
-let profileJob = document.querySelector('.profile__job');
-let formName = document.querySelector('.form__input_edit_name');
-let formJob = document.querySelector('.form__input_edit_job');
-let formElement = document.querySelector('.form');
+const profileInfoEdit = document.querySelector('.profile__info-edit');
+const popupNode = document.querySelector('.popup');
+const popupCloseButtonNode = document.querySelector('.popup__close-button');
+const profileName = document.querySelector('.profile__name');
+const profileJob = document.querySelector('.profile__job');
+const formName = document.querySelector('.form__input_edit_name');
+const formJob = document.querySelector('.form__input_edit_job');
+const formElement = document.querySelector('.form');
 
+// Переменная кнопки добавления места
+const buttonAddPlace = document.querySelector('.add-button');
+
+// Переменные попапа ввода полей добавления места
+const formCardTitle = document.querySelector('.form__input_edit_card-title');
+const formCardLinkImage = document.querySelector('.form__input_edit_card-link-image');
+
+// Попап редактирования профиля
 function handleProfileInfoEditClick() {
   popupNode.classList.add('popup_opened');
 formName.value = profileName.textContent;
@@ -56,3 +64,15 @@ function formSubmitHandler (evt) {
 }
 
 formElement.addEventListener('submit', formSubmitHandler);
+
+// Попап добавления карточки места
+
+function handleCardPlaceEditClick() {
+  popupNode.classList.add('popup_opened');
+formCardTitle.value = 'Название';
+formCardLinkImage.value = 'Ссылка на картинку';
+}
+
+// Добавляем слушатель для кнопки добавления карточки места
+
+buttonAddPlace.addEventListener('click', handleCardPlaceEditClick);
