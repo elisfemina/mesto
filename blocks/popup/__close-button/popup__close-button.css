@@ -2,8 +2,8 @@
   position: absolute;
   right: 6px;
   top: -44px;
-  height: 26px;
-  width: 26px;
+  height: 30px;
+  width: 30px;
   background-image: url(../../../images/Close-Icon.svg);
   transform: rotate(-45deg);
   background-size: contain;

@@ -33,69 +33,7 @@
     <!-- Секция cards -->
 
     <section class="cards">
-      <ul class="cards__box">
-
-        <li class="card">
-          <button aria-label="Удалить" class="card__trash" type="button"></button>
-          <figure class="card__figure">
-            <img class="card__image" src="./images/Karachaevsk.jpg" alt="Вид местности">
-            <figcaption class="card__caption">
-              <h2 class="card__subtitle">Карачаевск</h2>
-              <button aria-label="Like" class="card__like" type="button"></button>
-            </figcaption>
-          </figure>
-        </li>
-
-        <li class="card">
-          <figure class="card__figure">
-            <img class="card__image" src="./images/mountain-elbrus.jpg" alt="Вид местности">
-            <figcaption class="card__caption">
-              <h2 class="card__subtitle">Гора Эльбрус</h2>
-              <button aria-label="Like" class="card__like" type="button"></button>
-            </figcaption>
-          </figure>
-        </li>
-
-        <li class="card">
-          <figure class="card__figure">
-            <img class="card__image" src="./images/dombay.jpg" alt="Вид местности">
-            <figcaption class="card__caption">
-              <h2 class="card__subtitle">Домбай</h2>
-              <button aria-label="Like" class="card__like" type="button"></button>
-            </figcaption>
-          </figure>
-        </li>
-
-        <li class="card">
-          <figure class="card__figure">
-            <img class="card__image" src="./images/mountain-elbrus.jpg" alt="Вид местности">
-            <figcaption class="card__caption">
-              <h2 class="card__subtitle">Гора Эльбрус</h2>
-              <button aria-label="Like" class="card__like" type="button"></button>
-            </figcaption>
-          </figure>
-        </li>
-
-        <li class="card">
-          <figure class="card__figure">
-            <img class="card__image" src="./images/dombay.jpg" alt="Вид местности">
-            <figcaption class="card__caption">
-              <h2 class="card__subtitle">Домбай</h2>
-              <button aria-label="Like" class="card__like" type="button"></button>
-            </figcaption>
-          </figure>
-        </li>
-
-        <li class="card">
-          <figure class="card__figure">
-            <img class="card__image" src="./images/Karachaevsk.jpg" alt="Вид местности">
-            <figcaption class="card__caption">
-              <h2 class="card__subtitle">Карачаево-Черкессия</h2>
-              <button aria-label="Like" class="card__like" type="button"></button>
-            </figcaption>
-          </figure>
-        </li>
-      </ul>
+      <ul class="cards__box"></ul>
     </section>
   </main>
 
@@ -115,7 +53,7 @@
       <form class="form" name="edit-profile">
         <input class="form__input form__input_edit_name" type="text" name="name" placeholder="">
         <input class="form__input form__input_edit_job" type="text" name="job" placeholder="">
-        <button class="form__button" type="submit">Сохранить</button>
+        <button class="form__button popup__button-save" type="submit">Сохранить</button>
       </form>
     </div>
   </div>
@@ -131,26 +69,29 @@
         <input class="form__input form__input_edit_card-title" type="text" name="card-title" placeholder="Название">
         <input class="form__input form__input_edit_card-link-image" type="text" name="card-link-image"
           placeholder="Ссылка на картинку">
-        <button class="form__button" type="submit">Создать</button>
+        <button class="form__button popup__button-create" type="submit">Создать</button>
       </form>
     </div>
   </div>
 
+  <!-- popup photo cards -->
   <div class="popup popup-photo">
-    <div class="popup-photo__container">
-      <button type="button" class="popup__close-button popup-photo__close-button"></button>
+    <button aria-label="Закрыть" type="button" class="popup__close-button popup-photo__close-button"></button>
+    <figure class="popup-photo__container">
       <img class="popup-photo__image" src="#" alt="#">
-      <h2 class="popup-photo__heading"></h2>
-    </div>
+      <figcaption class="popup-photo__caption">
+        <h2 class="popup-photo__subtitle"></h2>
+      </figcaption>
+    </figure>
   </div>
 
-  <template>
+  <template class="template">
     <li class="card">
       <button aria-label="Удалить" class="card__trash" type="button"></button>
       <figure class="card__figure">
         <img class="card__image" src="./images/dombay.jpg" alt="Вид местности">
         <figcaption class="card__caption">
-          <h2 class="card__subtitle">Домбай</h2>
+          <h2 class="card__subtitle"></h2>
           <button aria-label="Like" class="card__like" type="button"></button>
         </figcaption>
       </figure>
