@@ -90,18 +90,18 @@ function formSubmitHandler (evt) {
 //Функция лайк карточки
 function likeCard(e) {
     const targetElement = e.target;
-    targetElement.classList.toggle('card__like');
+    targetElement.classList.toggle('card__like_active');
 }
 
 //Функция попап фото
 function openPhotoPopup(e, item) {
     const targetElement = e.target;
     const imageCards = document.querySelector('.popup-photo__image');
-    const subtitleCards = document.querySelector('.popup-photo__heading');
-    const photoLink = targetElement.getAttribute('src');
+    const subtitleCards = document.querySelector('.popup-photo__subtitle');
+    const linkImageCards = targetElement.getAttribute('src');
 
-    popupPhotoCards.add('popup_opened');
-    imageCards.src = photoLink;
+    popupPhotoCards.classList.add('popup_opened');
+    imageCards.src = linkImageCards;
     imageCards.setAttribute("alt", item.name);
     subtitleCards.textContent = item.name;
 }
@@ -112,9 +112,8 @@ function createCard(item) {
     const cardImage = newCard.querySelector('.card__image');
     const cardSubtitle = newCard.querySelector('.card__subtitle');
     cardImage.src = item.link;
-    cardImage.setAttribute("alt", item.name);
     cardSubtitle.textContent = item.name;
-
+    cardImage.setAttribute("alt", item.name);
 
     //Кнопка удаления карточки
     const buttonCardTrash = newCard.querySelector('.card__trash');
@@ -138,7 +137,19 @@ function renderInitialCards() {
 }
 renderInitialCards();
 
-
+//Добавление новой карточки
+function addNewCard(evt) {
+    evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
+    const newCardTitle = formInputCardTitle.value;
+    const newLinkImages = formInputCardLinkImage.value;
+    const newCards = createCard({ name: newCardTitle, link: newLinkImages });
+    CardsContainer.prepend(newCards);
+    const popupAddForm = document.querySelector('.form_add-form')
+    popupAddForm.reset();
+    handlePopupCloseButtonClick(popupAddCard);
+}
+// Вызов функции открытия попапа фото
+popupPhotoCards.addEventListener('click', e => openPhotoPopup(e, item));
 // Вызов функции открытия формы редактирования профиля
 buttonInfoEdit.addEventListener('click', popup => handleButtonClick(popupEditProfile));
 // Вызов функции открытия формы добавления карточки
@@ -146,7 +157,7 @@ buttonAddCard.addEventListener('click', popup => handleButtonClick(popupAddCard)
 // Вызов функции закрытия формы
 buttonCloseEditProfile.addEventListener('click', popup => handlePopupCloseButtonClick(popupEditProfile));
 buttonCloseAddCard.addEventListener('click', popup => handlePopupCloseButtonClick(popupAddCard));
+buttonClosePhotoCards.addEventListener('click', popup => handlePopupCloseButtonClick(popupPhotoCards));
 // Вызов функции закрытия формы редактирования профиля после сохранения
 formElement.addEventListener('submit', formSubmitHandler);
-
-popupPhotoCards.addEventListener('click', e => openPhotoPopup(e, item));
+popupAddCard.addEventListener('submit', addNewCard);
