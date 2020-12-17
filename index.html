@@ -66,9 +66,10 @@
         class="popup__close-button popup__close-button_add-card"></button>
       <h3 class="popup__edit">Новое место</h3>
       <form class="form form_add-form" name="edit-profile">
-        <input class="form__input form__input_edit_card-title" type="text" name="card-title" placeholder="Название">
-        <input class="form__input form__input_edit_card-link-image" type="text" name="card-link-image"
-          placeholder="Ссылка на картинку">
+        <input class="form__input form__input_edit_card-title" type="text" name="card-title" placeholder="Название"
+          required>
+        <input class="form__input form__input_edit_card-link-image" type="url" name="card-link-image"
+          placeholder="Ссылка на картинку" required>
         <button class="form__button popup__button-create" type="submit">Создать</button>
       </form>
     </div>
@@ -99,6 +100,7 @@
   </template>
 
   <script src="./script/index.js"></script>
+
 </body>
 
 </html>

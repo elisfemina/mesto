@@ -53,7 +53,7 @@ const formInputCardTitle = document.querySelector('.form__input_edit_card-title'
 const formInputCardLinkImage = document.querySelector('.form__input_edit_card-link-image');
 
 // Селектор контейнера карточек
-const CardsContainer = document.querySelector('.cards__box');
+const cardsContainer = document.querySelector('.cards__box');
 
 // Селектор шаблона карточки места
 const templateCards = document.querySelector('.template');
@@ -75,6 +75,7 @@ function handlePopupCloseButtonClick(popup) {
 // Функция закрытия формы редактирования профиля после сохранения
 function formSubmitHandler (evt) {
     evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
+
     profileName.textContent = formName.value;
     profileJob.textContent = formJob.value;
     handlePopupCloseButtonClick(popupEditProfile);
@@ -82,15 +83,12 @@ function formSubmitHandler (evt) {
 
 // Функция удаления карточки
     function removeCard(e) {
-    const targetElement = e.target;
-    const targetCard = targetElement.closest('.card');
-    targetCard.remove();
+    e.target.closest('.card').remove();
 }
 
 //Функция лайк карточки
 function likeCard(e) {
-    const targetElement = e.target;
-    targetElement.classList.toggle('card__like_active');
+    e.target.classList.toggle('card__like_active');
 }
 
 //Функция попап фото
@@ -100,7 +98,8 @@ function openPhotoPopup(e, item) {
     const subtitleCards = document.querySelector('.popup-photo__subtitle');
     const linkImageCards = targetElement.getAttribute('src');
 
-    popupPhotoCards.classList.add('popup_opened');
+
+    handleButtonClick(popupPhotoCards);
     imageCards.src = linkImageCards;
     imageCards.setAttribute("alt", item.name);
     subtitleCards.textContent = item.name;
@@ -133,7 +132,7 @@ function createCard(item) {
 //Добавление карточек в контейнер
 function renderInitialCards() {
     const newInitialCards = initialCards.map(createCard);
-    CardsContainer.append(...newInitialCards);
+    cardsContainer.append(...newInitialCards);
 }
 renderInitialCards();
 
@@ -143,7 +142,7 @@ function addNewCard(evt) {
     const newCardTitle = formInputCardTitle.value;
     const newLinkImages = formInputCardLinkImage.value;
     const newCards = createCard({ name: newCardTitle, link: newLinkImages });
-    CardsContainer.prepend(newCards);
+    cardsContainer.prepend(newCards);
     const popupAddForm = document.querySelector('.form_add-form')
     popupAddForm.reset();
     handlePopupCloseButtonClick(popupAddCard);
