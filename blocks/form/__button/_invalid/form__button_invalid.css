@@ -1,23 +1,19 @@
-.form__button {
+.form__button_invalid {
+  box-sizing: border-box;
   width: 100%;
   min-height: 46px;
-  background: #000;
+  background: transparent;
   border-radius: 2px;
   padding: 0;
-  border: none;
+  border: 1px solid #000;
   font-family: inherit;
   font-weight: normal;
   font-size: 14px;
   line-height: 17px;
   text-align: center;
-  color: #fff;
+  color: #000;
+  opacity: 0.2;
   margin-top: 15px;
-  transition: 0.5s;
-}
-
-.form__button:hover {
-  background: rgba(0, 0, 0, 0.8);
-  cursor: pointer;
 }
 
 @media (min-width: 1280px) {
