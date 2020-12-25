@@ -50,9 +50,18 @@
       <button aria-label="Закрыть" title="Close (Esc)" type="button"
         class="popup__close-button popup__close-button_edit-profile"></button>
       <h3 class="popup__edit">Редактировать профиль</h3>
-      <form class="form" name="edit-profile">
-        <input class="form__input form__input_edit_name" type="text" name="name" placeholder="">
-        <input class="form__input form__input_edit_job" type="text" name="job" placeholder="">
+      <form class="form form_edit-form" name="edit-profile" novalidate>
+        <div class="form__inner">
+          <input class="form__input form__input_edit_name" id="name-profile" type="text" name="name" placeholder=""
+            required minlength="2" maxlength="40" autocomplete="off">
+          <span id="name-profile-error" class="error"></span>
+        </div>
+
+        <div class="form__inner">
+          <input class="form__input form__input_edit_job" id="job-profile" type="text" name="job" placeholder=""
+            required minlength="2" maxlength="200" autocomplete="off">
+          <span id="job-profile-error" class="error"></span>
+        </div>
         <button class="form__button popup__button-save" type="submit">Сохранить</button>
       </form>
     </div>
@@ -65,18 +74,25 @@
       <button aria-label="Закрыть" title="Close (Esc)" type="button"
         class="popup__close-button popup__close-button_add-card"></button>
       <h3 class="popup__edit">Новое место</h3>
-      <form class="form form_add-form" name="edit-profile">
-        <input class="form__input form__input_edit_card-title" type="text" name="card-title" placeholder="Название"
-          required>
-        <input class="form__input form__input_edit_card-link-image" type="url" name="card-link-image"
-          placeholder="Ссылка на картинку" required>
+
+      <form class="form form_add-form" name="add-card" novalidate>
+        <div class="form__inner">
+          <input class="form__input form__input_edit_card-title" id="title-card" type="text" name="card-title"
+            placeholder="Название" required minlength="2" maxlength="30" autocomplete="off">
+          <span id="title-card-error" class="error"></span>
+        </div>
+        <div class="form__inner">
+          <input class="form__input form__input_edit_card-link-image" id="link-card" type="url" name="card-link-image"
+            placeholder="Ссылка на картинку" required autocomplete="off">
+          <span id="link-card-error" class="error"></span>
+        </div>
         <button class="form__button popup__button-create" type="submit">Создать</button>
       </form>
     </div>
   </div>
 
   <!-- popup photo cards -->
-  <div class="popup popup-photo">
+  <div class="popup popup-photo popup_close_photo">
     <figure class="popup-photo__container">
       <button aria-label="Закрыть" type="button" class="popup__close-button popup-photo__close-button"></button>
       <img class="popup-photo__image" src="#" alt="#">
@@ -100,6 +116,7 @@
   </template>
 
   <script src="./script/index.js"></script>
+  <script src="./script/validate.js"></script>
 
 </body>
 

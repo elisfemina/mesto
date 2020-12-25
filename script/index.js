@@ -1,5 +1,4 @@
-const initialCards = [
-    {
+const initialCards = [{
         name: 'Москва',
         link: 'images/Moscow-city.jpg'
     },
@@ -29,6 +28,7 @@ const initialCards = [
 const popupEditProfile = document.querySelector('.popup_act_edit-profile');
 const popupAddCard = document.querySelector('.popup_act_add-card');
 const popupPhotoCards = document.querySelector('.popup-photo');
+
 
 // Селектор кнопки открытия формы редактирования профиля
 const buttonInfoEdit = document.querySelector('.profile__info-edit');
@@ -60,20 +60,35 @@ const templateCards = document.querySelector('.template');
 
 // Функция открытия формы
 function handleButtonClick(popup) {
-  popup.classList.add('popup_opened');
-  if (popup === popupEditProfile) {
-formName.value = profileName.textContent;
-formJob.value = profileJob.textContent;
-  }
+    popup.classList.add('popup_opened');
+    if (popup === popupEditProfile) {
+        formName.value = profileName.textContent;
+        formJob.value = profileJob.textContent;
+    }
 }
 
 // Функция закрытия формы
+function handleEscPress(evt) {
+    if (evt.key === 'Escape') {
+        const openedPopup = document.querySelector('.popup_opened');
+        handlePopupCloseButtonClick(openedPopup);
+    }
+}
+
+function handleOverlayClick(evt) {
+    if (evt.target.classList.contains('popup_opened')) {
+        handlePopupCloseButtonClick(evt.target);
+    }
+}
+
 function handlePopupCloseButtonClick(popup) {
-  popup.classList.remove('popup_opened');
+    popup.classList.remove('popup_opened');
+    document.removeEventListener('click', handleOverlayClick);
+    document.removeEventListener('keydown', handleEscPress);
 }
 
 // Функция закрытия формы редактирования профиля после сохранения
-function formSubmitHandler (evt) {
+function formSubmitHandler(evt) {
     evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
 
     profileName.textContent = formName.value;
@@ -82,7 +97,7 @@ function formSubmitHandler (evt) {
 }
 
 // Функция удаления карточки
-    function removeCard(e) {
+function removeCard(e) {
     e.target.closest('.card').remove();
 }
 
@@ -141,7 +156,10 @@ function addNewCard(evt) {
     evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
     const newCardTitle = formInputCardTitle.value;
     const newLinkImages = formInputCardLinkImage.value;
-    const newCards = createCard({ name: newCardTitle, link: newLinkImages });
+    const newCards = createCard({
+        name: newCardTitle,
+        link: newLinkImages
+    });
     cardsContainer.prepend(newCards);
     const popupAddForm = document.querySelector('.form_add-form')
     popupAddForm.reset();
