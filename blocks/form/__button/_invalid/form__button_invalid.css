@@ -16,6 +16,11 @@
   margin-top: 15px;
 }
 
+.form__button_invalid:hover {
+  cursor: default;
+  background: transparent;
+}
+
 @media (min-width: 1280px) {
   .form__button {
     font-size: 18px;

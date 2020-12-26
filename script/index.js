@@ -29,7 +29,6 @@ const popupEditProfile = document.querySelector('.popup_act_edit-profile');
 const popupAddCard = document.querySelector('.popup_act_add-card');
 const popupPhotoCards = document.querySelector('.popup-photo');
 
-
 // Селектор кнопки открытия формы редактирования профиля
 const buttonInfoEdit = document.querySelector('.profile__info-edit');
 
@@ -60,6 +59,8 @@ const cardsContainer = document.querySelector('.cards__box');
 // Селектор шаблона карточки места
 const templateCards = document.querySelector('.template');
 
+const buttonCreate = document.querySelector('.popup__button-create');
+
 // Открытие попапа
 function handleButtonClick(popup) {
     popup.classList.add('popup_opened');
@@ -67,14 +68,11 @@ function handleButtonClick(popup) {
     document.addEventListener('keydown', closePressEsc);
 }
 
-
-
 // Закрытие попапа
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
     document.removeEventListener('click', closeOverlayClick);
     document.removeEventListener('keydown', closePressEsc);
-
 }
 
 // Закрытие попапа по клику на оверлей
@@ -92,7 +90,6 @@ function closePressEsc(evt) {
     }
 }
 
-
 //Очистка инпутов формы добавления карточки
 function resetInput(popup, config) {
     const inputs = popup.querySelectorAll(config.inputSelector);
@@ -100,7 +97,6 @@ function resetInput(popup, config) {
         input.value = "";
     });
 }
-
 
 // Удаление сообщения об ошибке
 function removeError(form, config) {
@@ -111,7 +107,6 @@ function removeError(form, config) {
         input.classList.remove(config.inputErrorClass);
     });
 }
-
 
 // Закрытие формы редактирования профиля после редактирования и сохранения
 function formSubmitHandler(evt) {
@@ -139,7 +134,6 @@ function openPhotoPopup(evt, item) {
     const subtitleCards = document.querySelector('.popup-photo__subtitle');
     const linkImageCards = targetElement.getAttribute('src');
 
-
     handleButtonClick(popupPhotoCards);
     imageCards.src = linkImageCards;
     imageCards.setAttribute("alt", item.name);
@@ -166,7 +160,6 @@ function createCard(item) {
     // Картинка карточки
     const photoCards = newCard.querySelector('.card__image');
     photoCards.addEventListener('click', e => openPhotoPopup(e, item));
-
     return newCard
 }
 
@@ -192,15 +185,15 @@ function addNewCard(evt) {
 }
 
 // Вызов функции открытия формы редактирования профиля
-buttonInfoEdit.addEventListener('click', popup => handleButtonClick(popupEditProfile));
+buttonInfoEdit.addEventListener('click', () => handleButtonClick(popupEditProfile));
 
 // Вызов функции открытия формы добавления карточки
-buttonAddCard.addEventListener('click', popup => handleButtonClick(popupAddCard));
+buttonAddCard.addEventListener('click', () => handleButtonClick(popupAddCard));
 
 // Вызов функции закрытия формы
-buttonCloseEditProfile.addEventListener('click', popup => closePopup(popupEditProfile));
-buttonCloseAddCard.addEventListener('click', popup => closePopup(popupAddCard));
-buttonClosePhotoCards.addEventListener('click', popup => closePopup(popupPhotoCards));
+buttonCloseEditProfile.addEventListener('click', () => closePopup(popupEditProfile));
+buttonCloseAddCard.addEventListener('click', () => closePopup(popupAddCard));
+buttonClosePhotoCards.addEventListener('click', () => closePopup(popupPhotoCards));
 
 // Вызов функции закрытия формы редактирования профиля после сохранения
 formElement.addEventListener('submit', formSubmitHandler);
@@ -210,6 +203,7 @@ popupAddCard.addEventListener('submit', addNewCard);
 buttonAddCard.addEventListener('click', () => {
     resetInput(popupAddCard, validationConfig);
     removeError(popupAddForm, validationConfig);
+    setButtonState(buttonCreate, popupAddForm.checkValidity(), validationConfig);
 });
 
 // Удаление сообщения об ошибке в инпутах редактирования профиля
