@@ -1,42 +1,39 @@
 const initialCards = [
   {
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
+    link: './images/Asgard.jpg',
     name: 'Asgard'
   },
   {
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
+    link: './images/Jotunheim.jpg',
     name: 'Jotunheim'
   },
   {
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
+    link: './images/Maveth.jpg',
     name: 'Maveth'
   },
   {
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
+    link: './images/Sakaar.jpg',
     name: 'Sakaar'
   },
   {
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
+    link: './images/Vormir.jpg',
     name: 'Vormir'
   },
   {
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
+    link: './images/Xandar.jpg',
     name: 'Xandar'
   }
 ];
 
 class Card {
-  construtor(link, name) {
+  constructor(link, name) {
     this._link = link;
     this._name = name;
   }
 
   _getTemplate() {
     const cardElement = document
-      .querySelector('.card-template')
-      .content
-      .querySelector('.card')
-      .cloneNode(true);
+      .querySelector('.card-template').content.querySelector('.card').cloneNode(true);
 
     return cardElement;
   }
@@ -51,16 +48,18 @@ class Card {
     this._element.querySelector('.card__subtitle').textContent = this._name;
 
     // Вернём элемент наружу
-    return this._element;
+    return this._element;    
   }
 }
 
 initialCards.forEach((item) => {
   // Создадим экземпляр карточки
   const card = new Card(item.link, item.name);
-  // Создаём карточку и возвращаем наружу
+  console.log(item.link, item.name);
+  console.log(card);
+  // Создаём карточку и возвращаем наружу  
   const cardElement = card.generateCard();
-
+console.log(cardElement);
   // Добавляем в DOM
   document.querySelector('.cards__box').append(cardElement);  
 });
