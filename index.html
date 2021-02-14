@@ -6,12 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mesto</title>
+  <link rel="icon" href="./images/favicon-mesto.svg" type="type="image/svg+xml">
   <link rel="stylesheet" href="./pages/index.css">
 </head>
 
 <body class="body">
   <header class="header body__header">
-    <img class="header__logo" src="./images/logo.svg" alt="Логотип">
+    <img class="header__logo" src="./images/logo-mesto.svg" alt="Логотип">
   </header>
 
   <!-- Блок profile -->
@@ -21,7 +22,7 @@
       <img class="profile__avatar" src="./images/Thor.jpg" alt="Фото профиля">
       <div class="profile__info">
         <div class="profile__info-inner">
-          <h1 class="profile__name">Thor son of Odin</h1>
+          <h1 class="profile__name">Thor</h1>
           <button aria-label="Редактировать профиль" class="profile__info-edit" type="button"></button>
         </div>
         <p class="profile__job">God of thunder and lightning</p>
@@ -40,10 +41,10 @@
   <!-- footer -->
 
   <footer class="footer">
-    <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+    <p class="footer__copyright">&copy; 2021 by ituniti</p>
   </footer>
 
-  <!-- popup -->
+  <!-- popup edit profile-->
 
   <div class="popup popup_act_edit-profile">
     <div class="popup__container">
@@ -51,6 +52,7 @@
         class="popup__close-button popup__close-button_edit-profile"></button>
       <h3 class="popup__edit">Редактировать профиль</h3>
       <form class="form form_edit-form" name="edit-profile" novalidate>
+
         <div class="form__inner">
           <input class="form__input form__input_edit_name" id="name-profile" type="text" name="name" placeholder=""
             required minlength="2" maxlength="40" autocomplete="off">
@@ -101,23 +103,21 @@
       </figcaption>
     </figure>
   </div>
-
+  
   <template class="card-template">
-    <li class="card">
-      <button aria-label="Удалить" class="card__trash" type="button"></button>
-      <figure class="card__figure">
-        <img src="#" class="card__image" alt="Вид местности">
-        <figcaption class="card__caption">
-          <h2 class="card__subtitle"></h2>
-          <button aria-label="Like" class="card__like" type="button"></button>
-        </figcaption>
-      </figure>
+  <li class="card">
+    <button aria-label="Удалить" class="card__trash" type="button"></button>
+    <figure class="card__figure">
+      <img src="#" class="card__image" alt="Вид местности">
+      <figcaption class="card__caption">
+        <h2 class="card__subtitle"></h2>
+        <button aria-label="Like" class="card__like" type="button"></button>
+      </figcaption>
+    </figure>
     </li>
   </template>
-
-  <script src="script/validate.js"></script>
-  <script src="script/index.js"></script>
-
+  
+  <script type="module" src="script/index.js"></script>
 </body>
 
 </html>
