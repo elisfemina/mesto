@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mesto</title>
+  <link rel="icon" href="./images/favicon-mesto.svg" type="type="image/svg+xml">
   <link rel="stylesheet" href="./pages/index.css">
 </head>
 
@@ -43,7 +44,7 @@
     <p class="footer__copyright">&copy; 2021 by ituniti</p>
   </footer>
 
-  <!-- popup -->
+  <!-- popup edit profile-->
 
   <div class="popup popup_act_edit-profile">
     <div class="popup__container">
@@ -51,6 +52,7 @@
         class="popup__close-button popup__close-button_edit-profile"></button>
       <h3 class="popup__edit">Редактировать профиль</h3>
       <form class="form form_edit-form" name="edit-profile" novalidate>
+
         <div class="form__inner">
           <input class="form__input form__input_edit_name" id="name-profile" type="text" name="name" placeholder=""
             required minlength="2" maxlength="40" autocomplete="off">
@@ -114,10 +116,8 @@
     </figure>
     </li>
   </template>
-
-  <!-- <script src="script/validate.js"></script> -->
-  <script src="script/index.js"></script>
-
+  
+  <script type="module" src="script/index.js"></script>
 </body>
 
 </html>
