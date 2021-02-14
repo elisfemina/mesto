@@ -41,9 +41,9 @@ const buttonCloseAddCard = document.querySelector('.popup__close-button_add-card
 const buttonClosePhotoCards = document.querySelector('.popup-photo__close-button');
 
 // Открытие попапа
-function handleButtonClick(popup) {
-  popup.classList.add('popup_opened');
-  popup.addEventListener('click', closeOverlayClick);
+function handleButtonClick(openPopup) {
+  openPopup.classList.add('popup_opened');
+  openPopup.addEventListener('click', closeOverlayClick);
   document.addEventListener('keydown', closePressEsc);
 }
 
@@ -51,13 +51,10 @@ function handleButtonClick(popup) {
 buttonInfoEdit.addEventListener('click', () => handleButtonClick(popupEditProfile));
 
 // Вызов кнопки открытия формы добавления карточки
-buttonAddCard.addEventListener('click', () => {
-  resetInput(popupAddCard, validationConfig);
-  removeError(popupAddForm, validationConfig);
-  handleButtonClick(popupAddCard);
-  addCardValidator.enableValidation(); 
+buttonAddCard.addEventListener('click', () => {  
+  addCardValidator.resetValidation();
+  handleButtonClick(popupAddCard);  
   });
-  
 
 // Обработка открытия попапа фото при клике на карточку
 function handleClickCardPopupImage(link, name) {
@@ -99,7 +96,7 @@ buttonCloseAddCard.addEventListener('click', () => closePopup(popupAddCard));
 function createCard(item) {
   const card = new Card(item, ".card-template", handleClickCardPopupImage);
   const cardElement = card.generateCard();
-  return cardElement
+  return cardElement;
 }
 
 // Рендер карточки
@@ -123,7 +120,7 @@ function addNewCard(evt) {
   });
   cardsContainer.prepend(newCards);  
   popupAddForm.reset();
-  closePopup(popupAddCard);
+  closePopup(popupAddCard);   
 }
 
 popupAddCard.addEventListener('submit', addNewCard);
@@ -145,8 +142,7 @@ popupEditProfile.addEventListener('submit', formSubmitHandler);
 buttonInfoEdit.addEventListener('click', () => {
   formName.value = profileName.textContent;
   formJob.value = profileJob.textContent;
-  removeError(formEditForm, validationConfig);
-  profileValidator.enableValidation();
+  profileValidator.resetValidation();
 });
 
 //Очистка инпутов формы добавления карточки
