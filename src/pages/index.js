@@ -1,43 +1,31 @@
-import { initialCards } from '../components/initial-cards.js';
-import { Card } from '../components/Card.js';
-import { FormValidator } from '../components/FormValidator.js';
+import Card from '../components/Card.js';
+import FormValidator from '../components/FormValidator.js';
 
-// Селектор контейнера карточек
-const cardsContainer = document.querySelector('.cards__box');
 
-// Селектор шаблона карточки места
-const templateCards = document.querySelector('.card-template');
-
-// Селекторы попапа увеличенной картинки при клике на карточку
-const popupPhotoCards = document.querySelector('.popup-photo');
-const imageCards = document.querySelector('.popup-photo__image');
-const subtitleCards = document.querySelector('.popup-photo__subtitle');
-
-// Селектор кнопки открытия формы редактирования профиля
-const buttonInfoEdit = document.querySelector('.profile__info-edit');
-
-// Селектор кнопки открытия формы добавления места
-const buttonAddCard = document.querySelector('.add-button');
-
-// Селекторы формы редактирования профиля
-const popupEditProfile = document.querySelector('.popup_act_edit-profile');
-const profileName = document.querySelector('.profile__name');
-const profileJob = document.querySelector('.profile__job');
-const formName = document.querySelector('.form__input_edit_name');
-const formJob = document.querySelector('.form__input_edit_job');
-const formEditForm = document.querySelector('.form_edit-form');
-
-// Селекторы формы дбавления карточки
-const popupAddCard = document.querySelector('.popup_act_add-card');
-const formInputCardTitle = document.querySelector('.form__input_edit_card-title');
-const formInputCardLinkImage = document.querySelector('.form__input_edit_card-link-image');
-const popupAddForm = document.querySelector('.form_add-form');
-const buttonCreate = document.querySelector('.popup__button-create');
-
-// Селекторы кнопок закрытия попапов
-const buttonCloseEditProfile = document.querySelector('.popup__close-button_edit-profile');
-const buttonCloseAddCard = document.querySelector('.popup__close-button_add-card');
-const buttonClosePhotoCards = document.querySelector('.popup-photo__close-button');
+import {
+  initialCards,
+  cardsContainer,
+  templateCards,
+  popupPhotoCards,
+  imageCards,
+  subtitleCards,
+  buttonInfoEdit,
+  buttonAddCard,
+  popupEditProfile,
+  profileName,
+  profileJob,
+  formName,
+  formJob,
+  formEditForm,
+  popupAddCard,
+  formInputCardTitle,
+  formInputCardLinkImage,
+  popupAddForm,
+  buttonCreate,
+  buttonCloseEditProfile,
+  buttonCloseAddCard,
+  buttonClosePhotoCards,
+} from '../utils/constants.js';
 
 // Открытие попапа
 function handleButtonClick(openPopup) {
@@ -50,10 +38,10 @@ function handleButtonClick(openPopup) {
 buttonInfoEdit.addEventListener('click', () => handleButtonClick(popupEditProfile));
 
 // Вызов кнопки открытия формы добавления карточки
-buttonAddCard.addEventListener('click', () => {  
+buttonAddCard.addEventListener('click', () => {
   addCardValidator.resetValidation();
-  handleButtonClick(popupAddCard);  
-  });
+  handleButtonClick(popupAddCard);
+});
 
 // Обработка открытия попапа фото при клике на карточку
 function handleClickCardPopupImage(link, name) {
@@ -117,9 +105,9 @@ function addNewCard(evt) {
     name: newCardTitle,
     link: newLinkImages
   });
-  cardsContainer.prepend(newCards);  
+  cardsContainer.prepend(newCards);
   popupAddForm.reset();
-  closePopup(popupAddCard);   
+  closePopup(popupAddCard);
 }
 
 popupAddCard.addEventListener('submit', addNewCard);

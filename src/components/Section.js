@@ -1,3 +1,3 @@
 export default class Section {
-    constructor (items, renderer)
+    constructor ({items}, renderer());
 }
