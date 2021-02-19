@@ -1,6 +1,6 @@
-import { initialCards } from './initial-cards.js';
-import { Card } from './Card.js';
-import { FormValidator } from './FormValidator.js';
+import { initialCards } from '../components/initial-cards.js';
+import { Card } from '../components/Card.js';
+import { FormValidator } from '../components/FormValidator.js';
 
 // Селектор контейнера карточек
 const cardsContainer = document.querySelector('.cards__box');
@@ -18,7 +18,6 @@ const buttonInfoEdit = document.querySelector('.profile__info-edit');
 
 // Селектор кнопки открытия формы добавления места
 const buttonAddCard = document.querySelector('.add-button');
-
 
 // Селекторы формы редактирования профиля
 const popupEditProfile = document.querySelector('.popup_act_edit-profile');

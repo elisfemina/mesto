@@ -1,6 +1,6 @@
 *.fig
 # Игнорировать каталог node_modules
-node_modules/
+/node_modules
 
 # Игнорирование логов
 logs
