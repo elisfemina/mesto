@@ -1,5 +1,6 @@
 import Card from '../components/Card.js';
 import FormValidator from '../components/FormValidator.js';
+import Section from '../components/Section.js';
 
 
 import {
@@ -80,37 +81,53 @@ buttonCloseEditProfile.addEventListener('click', () => closePopup(popupEditProfi
 buttonCloseAddCard.addEventListener('click', () => closePopup(popupAddCard));
 
 // Создание карточки
-function createCard(item) {
-  const card = new Card(item, ".card-template", handleClickCardPopupImage);
-  const cardElement = card.generateCard();
-  return cardElement;
-}
 
-// Рендер карточки
-initialCards.forEach((item) => {
-  const cardElement = createCard(item);
+const cardList = new Section({
+  items: initialCards,
+  renderer: (item) => {
+    const card = new Card(item, '.card-template', handleClickCardPopupImage);
+    const cardElement = card.generateCard();
+    cardList.addItem(cardElement);
+  }
+},
+  cardsContainer
+);
+cardList.renderItems();
 
-  // Добавляем в DOM
-  cardsContainer.append(cardElement);
-});
 
 
-//Добавление новой карточки
-function addNewCard(evt) {
-  evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-  const newCardTitle = formInputCardTitle.value;
-  const newLinkImages = formInputCardLinkImage.value;
+// // Создание карточки
+// function createCard(item) {
+//   const card = new Card(item, ".card-template", handleClickCardPopupImage);
+//   const cardElement = card.generateCard();
+//   return cardElement;
+// }
 
-  const newCards = createCard({
-    name: newCardTitle,
-    link: newLinkImages
-  });
-  cardsContainer.prepend(newCards);
-  popupAddForm.reset();
-  closePopup(popupAddCard);
-}
+// // Рендер карточки
+// initialCards.forEach((item) => {
+//   const cardElement = createCard(item);
 
-popupAddCard.addEventListener('submit', addNewCard);
+//   // Добавляем в DOM
+//   cardsContainer.append(cardElement);
+// });
+
+
+// //Добавление новой карточки
+// function addNewCard(evt) {
+//   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
+//   const newCardTitle = formInputCardTitle.value;
+//   const newLinkImages = formInputCardLinkImage.value;
+
+//   const newCards = createCard({
+//     name: newCardTitle,
+//     link: newLinkImages
+//   });
+//   cardsContainer.prepend(newCards);
+//   popupAddForm.reset();
+//   closePopup(popupAddCard);
+// }
+
+// popupAddCard.addEventListener('submit', addNewCard);
 
 // Редактирование формы профиля
 function formSubmitHandler(evt) {
