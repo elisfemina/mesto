@@ -1,7 +1,9 @@
 import Card from '../components/Card.js';
-import FormValidator from '../components/FormValidator.js';
 import Section from '../components/Section.js';
-
+import PopupWithForm from '../components/PopupWithForm.js';
+// import PopupWithImage from '../components/PopupWithImage.js';
+import UserInfo from '../components/UserInfo.js';
+import FormValidator from '../components/FormValidator.js';
 
 import {
   initialCards,
@@ -35,14 +37,29 @@ function handleButtonClick(openPopup) {
   document.addEventListener('keydown', closePressEsc);
 }
 
+const userInfo = new UserInfo({ userNameSelector, userInfoSelector });
+
 // Слушатель кнопки открытия формы редактирования профиля
 buttonInfoEdit.addEventListener('click', () => handleButtonClick(popupEditProfile));
 
-// Вызов кнопки открытия формы добавления карточки
-buttonAddCard.addEventListener('click', () => {
-  addCardValidator.resetValidation();
-  handleButtonClick(popupAddCard);
-});
+
+
+// Редактирование формы профиля
+function formSubmitHandler(evt) {
+  evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
+
+  profileName.textContent = formName.value;
+  profileJob.textContent = formJob.value;
+  closePopup(popupEditProfile);
+}
+
+popupEditProfile.addEventListener('submit', formSubmitHandler);
+
+// // Вызов кнопки открытия формы добавления карточки
+// buttonAddCard.addEventListener('click', () => {
+//   addCardValidator.resetValidation();
+//   handleButtonClick(popupAddCard);
+// });
 
 // Обработка открытия попапа фото при клике на карточку
 function handleClickCardPopupImage(link, name) {
@@ -51,37 +68,36 @@ function handleClickCardPopupImage(link, name) {
   handleButtonClick(popupPhotoCards);
 }
 
-// Закрытие попапа
-function closePopup(popup) {
-  popup.classList.remove('popup_opened');
-  document.removeEventListener('click', closeOverlayClick);
-  document.removeEventListener('keydown', closePressEsc);
-}
+// // Закрытие попапа
+// function closePopup(popup) {
+//   popup.classList.remove('popup_opened');
+//   document.removeEventListener('click', closeOverlayClick);
+//   document.removeEventListener('keydown', closePressEsc);
+// }
 
-// Закрытие попапа по клику на оверлей
-function closeOverlayClick(evt) {
-  if (evt.target.classList.contains('popup_opened')) {
-    closePopup(evt.target);
-  }
-}
+// // Закрытие попапа по клику на оверлей
+// function closeOverlayClick(evt) {
+//   if (evt.target.classList.contains('popup_opened')) {
+//     closePopup(evt.target);
+//   }
+// }
 
-// Закрытие попапа по нажатию на Esc
-function closePressEsc(evt) {
-  if (evt.key === 'Escape') {
-    const openedPopup = document.querySelector('.popup_opened')
-    closePopup(openedPopup);
-  }
-}
+// // Закрытие попапа по нажатию на Esc
+// function closePressEsc(evt) {
+//   if (evt.key === 'Escape') {
+//     const openedPopup = document.querySelector('.popup_opened')
+//     closePopup(openedPopup);
+//   }
+// }
 
-// Слушатель кнопки закрытия попапа увеличенного изображения карточки
-buttonClosePhotoCards.addEventListener('click', () => closePopup(popupPhotoCards));
+// // Слушатель кнопки закрытия попапа увеличенного изображения карточки
+// buttonClosePhotoCards.addEventListener('click', () => closePopup(popupPhotoCards));
 
-// Вызов функции закрытия формы
-buttonCloseEditProfile.addEventListener('click', () => closePopup(popupEditProfile));
-buttonCloseAddCard.addEventListener('click', () => closePopup(popupAddCard));
+// // Вызов функции закрытия формы
+// buttonCloseEditProfile.addEventListener('click', () => closePopup(popupEditProfile));
+// buttonCloseAddCard.addEventListener('click', () => closePopup(popupAddCard));
 
-// Создание карточки
-
+// Create six default cards from classes
 const cardList = new Section({
   items: initialCards,
   renderer: (item) => {
@@ -95,24 +111,7 @@ const cardList = new Section({
 cardList.renderItems();
 
 
-
-// // Создание карточки
-// function createCard(item) {
-//   const card = new Card(item, ".card-template", handleClickCardPopupImage);
-//   const cardElement = card.generateCard();
-//   return cardElement;
-// }
-
-// // Рендер карточки
-// initialCards.forEach((item) => {
-//   const cardElement = createCard(item);
-
-//   // Добавляем в DOM
-//   cardsContainer.append(cardElement);
-// });
-
-
-// //Добавление новой карточки
+// //Add new card
 // function addNewCard(evt) {
 //   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
 //   const newCardTitle = formInputCardTitle.value;
@@ -129,33 +128,33 @@ cardList.renderItems();
 
 // popupAddCard.addEventListener('submit', addNewCard);
 
-// Редактирование формы профиля
-function formSubmitHandler(evt) {
-  evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
+// // Редактирование формы профиля
+// function formSubmitHandler(evt) {
+//   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
 
-  profileName.textContent = formName.value;
-  profileJob.textContent = formJob.value;
-  closePopup(popupEditProfile);
-}
+//   profileName.textContent = formName.value;
+//   profileJob.textContent = formJob.value;
+//   closePopup(popupEditProfile);
+// }
 
-popupEditProfile.addEventListener('submit', formSubmitHandler);
+// popupEditProfile.addEventListener('submit', formSubmitHandler);
 
 
 
-// Заполнение данных в полях редактирования профиля
-buttonInfoEdit.addEventListener('click', () => {
-  formName.value = profileName.textContent;
-  formJob.value = profileJob.textContent;
-  profileValidator.resetValidation();
-});
+// // Заполнение данных в полях редактирования профиля
+// buttonInfoEdit.addEventListener('click', () => {
+//   formName.value = profileName.textContent;
+//   formJob.value = profileJob.textContent;
+//   profileValidator.resetValidation();
+// });
 
-//Очистка инпутов формы добавления карточки
-function resetInput(popup, config) {
-  const inputs = popup.querySelectorAll(config.inputSelector);
-  inputs.forEach(input => {
-    input.value = "";
-  });
-}
+// //Очистка инпутов формы добавления карточки
+// function resetInput(popup, config) {
+//   const inputs = popup.querySelectorAll(config.inputSelector);
+//   inputs.forEach(input => {
+//     input.value = "";
+//   });
+// }
 
 // Удаление сообщения об ошибке
 function removeError(form, config) {
