@@ -26,7 +26,7 @@ export const initialCards = [
   ];
 
 // Селектор контейнера карточек
-export const cardsContainer = document.querySelector('.cards__box');
+export const cardsContainer = '.cards__box';
 
 // Селектор шаблона карточки места
 export const templateCards = document.querySelector('.card-template');
@@ -52,7 +52,7 @@ export const formEditForm = document.querySelector('.form_edit-form');
 export const buttonSave = document.querySelector('.popup__button-save');
 
 // Селекторы формы дбавления карточки
-export const popupAddCard = document.querySelector('.popup_act_add-card');
+export const popupAddCard = '.popup_act_add-card';
 export const formInputCardTitle = document.querySelector('.form__input_edit_card-title');
 export const formInputCardLinkImage = document.querySelector('.form__input_edit_card-link-image');
 export const popupAddForm = document.querySelector('.form_add-form');
