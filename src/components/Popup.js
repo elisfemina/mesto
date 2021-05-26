@@ -1,47 +1,52 @@
 export default class Popup {
     constructor(popupSelector) {
         this._popupSelector = popupSelector;
-        this._popupElement = document.querySelector(this._popupSelector);
         this._handleEscClose = this._handleEscClose.bind(this);
-        this._handleOverlayClose = this._handleOverlayClose.bind(this)
-
+        this._handleOverlayClose = this._handleOverlayClose.bind(this);
     }
+
     //Opens popup
-    open() {
-        this._popupElement.classList.add('popup_opened');
+    openPopup() {
+        this._popupSelector.classList.add('popup_opened');
         document.addEventListener('keydown', this._handleEscClose);
-        this._popupElement.addEventListener('click', this._handleOverlayClose);
+        this._popupSelector.addEventListener('click', this._handleOverlayClose);
     }
 
 
 
     // Closes popup
-    close() {
-        _popupElement.classList.remove('popup_opened');
+    closePopup() {
+        this._popupSelector.classList.remove('popup_opened');
         document.removeEventListener('click', this._handleEscClose);
-        this._popupElement.removeEventListener('click', this._handleOverlayClose);
+        this._popupSelector.removeEventListener('click', this._handleOverlayClose);
     }
 
     // Closing popup by button Escape
-    _handleEscClose() {
+    _handleEscClose(evt) {
         if (evt.key === 'Escape') {
-            this.close();
+            this.closePopup();
         }
     }
 
     // Closing popup by clicking on overlay
-
-    _handleOverlayClose() {
+    _handleOverlayClose(evt) {
         if (evt.target.classList.contains('popup_opened')) {
-            this.close();
+            this.closePopup();
         }
     }
 
     // Closing popup by clicking on close button
-    setEventListeners() {
-        const closeButton = this._popupElement.querySelector('.popup__close-button');
 
-        closeButton.addEventListener('click', () => this.close)
+    handleButtonClose() {
+        const closeButton = this._popupSelector.querySelector('.popup__close-button');
+        closeButton.addEventListener('click', () => this.closePopup());
     }
+    // setEventListeners() {
+    //     const closeButton = this._popupSelector.querySelector('.popup__close-button');
+
+    //     //Закрытие на "крестик"
+    //     closeButton.addEventListener('click', () => this.closePopup());
+    //     console.log(closeButton);
+    // }
 
 }

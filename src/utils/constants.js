@@ -37,7 +37,7 @@ export const imageCards = document.querySelector('.popup-photo__image');
 export const subtitleCards = document.querySelector('.popup-photo__subtitle');
 
 // Селектор кнопки открытия формы редактирования профиля
-export const buttonInfoEdit = document.querySelector('.profile__info-edit');
+export const buttonInfoEdit = document.querySelector('.profile__button-info-edit');
 
 // Селектор кнопки открытия формы добавления места
 export const buttonAddCard = document.querySelector('.add-button');
@@ -49,6 +49,7 @@ export const profileJob = document.querySelector('.profile__job');
 export const formName = document.querySelector('.form__input_edit_name');
 export const formJob = document.querySelector('.form__input_edit_job');
 export const formEditForm = document.querySelector('.form_edit-form');
+export const buttonSave = document.querySelector('.popup__button-save');
 
 // Селекторы формы дбавления карточки
 export const popupAddCard = document.querySelector('.popup_act_add-card');

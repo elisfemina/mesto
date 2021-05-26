@@ -20,7 +20,7 @@ export default class Card {
   
       // Добавляем данные в карточку
       const cardImageElement = this._element.querySelector('.card__image');
-      this._cardImage = cardImageElement
+      this._cardImage = cardImageElement;
       this._cardImage.src = this._link;
       this._cardImage.alt = this._name;
       this._element.querySelector('.card__subtitle').textContent = this._name;

@@ -11,15 +11,15 @@ export default class Section {
         });
     }
 
-    // renderNewItem() {
-    //     this._renderer(this._renderedItems);
-    // }
+    renderNewItem() {
+        this._renderer(this._renderedItems);
+    }
 
     addItem(element) {
         this._container.append(element)
     }
 
-    // addNewItem(element) {
-    //     this._container.prepend(element)
-    // }
+    addNewItem(element) {
+        this._container.prepend(element)
+    }
 }

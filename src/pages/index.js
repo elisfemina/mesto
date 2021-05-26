@@ -1,8 +1,19 @@
-import Card from '../components/Card.js';
-import Section from '../components/Section.js';
-import PopupWithForm from '../components/PopupWithForm.js';
-// import PopupWithImage from '../components/PopupWithImage.js';
+//class UserInfo - выводит информацию об имени и занятии пользователя
 import UserInfo from '../components/UserInfo.js';
+
+// class Card - карточка с изображением, названием и лайком
+import Card from '../components/Card.js';
+
+// class Section -  отрисовка элемента на странице
+import Section from '../components/Section.js';
+
+// class PopupWithForm - попап формы редактирования профиля и добавления карточки
+import PopupWithForm from '../components/PopupWithForm.js';
+
+// class PopupWithImage - попап увеличенного фото карточки
+import PopupWithImage from '../components/PopupWithImage.js';
+
+// class FormValidator - валидация заполнения полей формы
 import FormValidator from '../components/FormValidator.js';
 
 import {
@@ -24,36 +35,12 @@ import {
   formInputCardTitle,
   formInputCardLinkImage,
   popupAddForm,
+  buttonSave,
   buttonCreate,
   buttonCloseEditProfile,
   buttonCloseAddCard,
   buttonClosePhotoCards,
 } from '../utils/constants.js';
-
-// Открытие попапа
-function handleButtonClick(openPopup) {
-  openPopup.classList.add('popup_opened');
-  openPopup.addEventListener('click', closeOverlayClick);
-  document.addEventListener('keydown', closePressEsc);
-}
-
-const userInfo = new UserInfo({ userNameSelector, userInfoSelector });
-
-// Слушатель кнопки открытия формы редактирования профиля
-buttonInfoEdit.addEventListener('click', () => handleButtonClick(popupEditProfile));
-
-
-
-// Редактирование формы профиля
-function formSubmitHandler(evt) {
-  evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-
-  profileName.textContent = formName.value;
-  profileJob.textContent = formJob.value;
-  closePopup(popupEditProfile);
-}
-
-popupEditProfile.addEventListener('submit', formSubmitHandler);
 
 // // Вызов кнопки открытия формы добавления карточки
 // buttonAddCard.addEventListener('click', () => {
@@ -61,12 +48,12 @@ popupEditProfile.addEventListener('submit', formSubmitHandler);
 //   handleButtonClick(popupAddCard);
 // });
 
-// Обработка открытия попапа фото при клике на карточку
-function handleClickCardPopupImage(link, name) {
-  imageCards.src = this._link;
-  subtitleCards.textContent = this._name;
-  handleButtonClick(popupPhotoCards);
-}
+// // Обработка открытия попапа фото при клике на карточку
+// function handleClickCardPopupImage(link, name) {
+//   imageCards.src = this._link;
+//   subtitleCards.textContent = this._name;
+//   handleButtonClick(popupPhotoCards);
+// }
 
 // // Закрытие попапа
 // function closePopup(popup) {
@@ -97,36 +84,21 @@ function handleClickCardPopupImage(link, name) {
 // buttonCloseEditProfile.addEventListener('click', () => closePopup(popupEditProfile));
 // buttonCloseAddCard.addEventListener('click', () => closePopup(popupAddCard));
 
-// Create six default cards from classes
-const cardList = new Section({
-  items: initialCards,
-  renderer: (item) => {
-    const card = new Card(item, '.card-template', handleClickCardPopupImage);
-    const cardElement = card.generateCard();
-    cardList.addItem(cardElement);
-  }
-},
-  cardsContainer
-);
-cardList.renderItems();
 
 
-// //Add new card
-// function addNewCard(evt) {
-//   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-//   const newCardTitle = formInputCardTitle.value;
-//   const newLinkImages = formInputCardLinkImage.value;
 
-//   const newCards = createCard({
-//     name: newCardTitle,
-//     link: newLinkImages
-//   });
-//   cardsContainer.prepend(newCards);
-//   popupAddForm.reset();
-//   closePopup(popupAddCard);
+
+
+
+// // Открытие попапа
+// function handleButtonClick(openPopup) {
+//   openPopup.classList.add('popup_opened');
+//   openPopup.addEventListener('click', closeOverlayClick);
+//   document.addEventListener('keydown', closePressEsc);
 // }
 
-// popupAddCard.addEventListener('submit', addNewCard);
+// // Слушатель кнопки открытия формы редактирования профиля
+// buttonInfoEdit.addEventListener('click', () => handleButtonClick(popupEditProfile));
 
 // // Редактирование формы профиля
 // function formSubmitHandler(evt) {
@@ -147,6 +119,175 @@ cardList.renderItems();
 //   formJob.value = profileJob.textContent;
 //   profileValidator.resetValidation();
 // });
+
+
+//____________________________________________________
+
+//Информация о пользователе из HTML
+const userInfo = new UserInfo({
+  userNameSelector: '.profile__name',
+  userInfoSelector: '.profile__job'
+});
+
+
+// const popupFormEditProfile = new PopupWithForm({
+//   popupSelector: '.popup_act_edit-profile',
+//   submitForm: () => {
+//   userInfo.getUserInfo();
+//   }
+// });
+
+// popupFormEditProfile.setEventListeners();
+
+//___________________________________________
+//+++++++++++++++++++++++++++++++++++++++++++++++++++
+// Заполнение данных формы редактирования профиля при нажатии на кнопку редактирования
+// buttonInfoEdit.addEventListener('click', () => {
+//   popupFormEditProfile.openPopup();
+//   const userInfoEdit = userInfo.getUserInfo();
+//   formName.value = userInfoEdit.name;
+//   formJob.value = userInfoEdit.job;
+//   profileValidator.resetValidation();
+// });
+//_________________________________________________
+//++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Create six default cards from classes
+const cardList = new Section({
+    items: initialCards,
+    renderer: (item) => {
+      const card = createCard(item);
+      // const cardElement = card.generateCard();
+      cardList.addItem(card);
+    }
+  },
+  cardsContainer
+);
+cardList.renderItems();
+
+// Попап фото
+// const popupImage = new PopupWithImage({
+//   popupSelector: '.popup-photo'
+// });
+
+// const cardList = new Section({
+//   items: initialCards,
+//   renderer: (item) => {
+//     const card = new Card(item, '.card-template');
+//     const cardElement = card.generateCard();
+//     cardList.addItem(cardElement);
+//   }
+// },
+//   cardsContainer
+// );
+// cardList.renderItems();
+
+
+// //Add new card
+
+// const addNewCard = new Section({
+//   items: templateCards,
+//   renderer: (item) => {
+//     const card = new Card(item, '.card-template');
+//     const cardElement = card.generateCard();
+//     addNewCard.addNewItem(cardElement);
+//   }
+// },
+//   cardsContainer
+// );
+// addNewCard.renderNewItem();
+
+function createCard(item) {
+  const card = new Card(item, '.card-template');
+  const cardElement = card.generateCard();
+  return cardElement;
+  // addNewCard.addNewItem(cardElement);
+}
+
+//создание карточки
+// function createCard(item) {
+//   const card = new Card(item, {
+//       selector: '.template',
+//       handleCardClick: () => {
+//           popupImage.open(item);
+//       },
+//       removeHandler: () => {
+//           popupDeleteCard.setEventListeners(deleteCard(card));
+//           popupDeleteCard.open();
+//       },
+//       api: api
+//   }, userId);
+//   const cardElement = card.generateCard();
+
+//   return cardElement
+// }
+
+// addNewCard.renderNewItem();
+
+// const card = new Card(item, '.card-template');
+// const cardElement = card.generateCard();
+// return cardElement;
+
+const popupFormAddCard = new PopupWithForm({
+  popupSelector: popupAddCard,
+  submitForm: () => {
+    // popupFormAddCard.setEventListeners();
+
+    const card = createCard(item)
+
+    cardList.addNewItem(card);
+  }
+
+});
+// cardList.renderNewItem();
+
+popupFormAddCard.handleButtonClose();
+
+popupFormAddCard.setEventListeners();
+
+// popupAddCard.addEventListener('submit', popupFormAddCard);
+
+// Вызов кнопки открытия формы добавления карточки
+buttonAddCard.addEventListener('click', () => {
+  addCardValidator.resetValidation();
+  popupFormAddCard.openPopup();
+});
+
+
+
+// // Вызов кнопки открытия формы добавления карточки
+// buttonAddCard.addEventListener('click', () => {
+//   addCardValidator.resetValidation();
+//   handleButtonClick(popupAddCard);
+// });
+
+
+
+
+
+
+
+
+
+
+
+// function addNewCard(evt) {
+//   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
+//   const newCardTitle = formInputCardTitle.value;
+//   const newLinkImages = formInputCardLinkImage.value;
+
+//   const newCards = createCard({
+//     name: newCardTitle,
+//     link: newLinkImages
+//   });
+//   cardsContainer.prepend(newCards);
+//   popupAddForm.reset();
+//   closePopup(popupAddCard);
+// }
+
+// popupAddCard.addEventListener('submit', addNewCard);
+
+
 
 // //Очистка инпутов формы добавления карточки
 // function resetInput(popup, config) {
