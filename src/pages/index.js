@@ -1,18 +1,14 @@
+import './index.css';
 //class UserInfo - выводит информацию об имени и занятии пользователя
 import UserInfo from '../components/UserInfo.js';
-
 // class Card - карточка с изображением, названием и лайком
 import Card from '../components/Card.js';
-
 // class Section -  отрисовка элемента на странице
 import Section from '../components/Section.js';
-
 // class PopupWithForm - попап формы редактирования профиля и добавления карточки
 import PopupWithForm from '../components/PopupWithForm.js';
-
 // class PopupWithImage - попап увеличенного фото карточки
 import PopupWithImage from '../components/PopupWithImage.js';
-
 // class FormValidator - валидация заполнения полей формы
 import FormValidator from '../components/FormValidator.js';
 

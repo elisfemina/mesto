@@ -1,29 +1,42 @@
-export const initialCards = [
-    {
-      link: './images/Asgard.jpg',
-      name: 'Asgard'
-    },
-    {
-      link: './images/Jotunheim.jpg',
-      name: 'Jotunheim'
-    },
-    {
-      link: './images/Maveth.jpg',
-      name: 'Maveth'
-    },
-    {
-      link: './images/Sakaar.jpg',
-      name: 'Sakaar'
-    },
-    {
-      link: './images/Vormir.jpg',
-      name: 'Vormir'
-    },
-    {
-      link: './images/Xandar.jpg',
-      name: 'Xandar'
-    }
-  ];
+const asgard = new URL('../images/Asgard.jpg',
+  import.meta.url);
+const jotunheim = new URL('../images/Jotunheim.jpg',
+  import.meta.url);
+const maveth = new URL('../images/Maveth.jpg',
+  import.meta.url);
+const sakaar = new URL('../images/Sakaar.jpg',
+  import.meta.url);
+const vormir = new URL('../images/Vormir.jpg',
+  import.meta.url);
+const xandar = new URL('../images/Xandar.jpg',
+  import.meta.url);
+
+
+export const initialCards = [{
+    link: asgard,
+    name: 'Asgard'
+  },
+  {
+    link: jotunheim,
+    name: 'Jotunheim'
+  },
+  {
+    link: maveth,
+    name: 'Maveth'
+  },
+  {
+    link: sakaar,
+    name: 'Sakaar'
+  },
+  {
+    link: vormir,
+    name: 'Vormir'
+  },
+  {
+    link: xandar,
+    name: 'Xandar'
+  }
+];
 
 // Селектор контейнера карточек
 export const cardsContainer = '.cards__box';
