@@ -52,6 +52,7 @@ export default class Card {
   // Удаление карточки
   _trashCard = () => {
     this._element.remove();
+    this.card = null;
   }
 
   // Лайк карточки

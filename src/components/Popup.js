@@ -34,15 +34,9 @@ export default class Popup {
     }
 
     // Closing popup by clicking on close button
-
-    handleButtonClose() {
-        const closeButton = this._popup.querySelector('.popup__close-button');
-        closeButton.addEventListener('click', () => this.closePopup());
-    }
     setEventListeners() {
         this._popup
             .querySelector('.popup__close-button')
             .addEventListener('click', () => this.closePopup());
     }
-
 }
