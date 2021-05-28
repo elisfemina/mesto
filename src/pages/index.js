@@ -12,30 +12,21 @@ import PopupWithImage from '../components/PopupWithImage.js';
 // class FormValidator - валидация заполнения полей формы
 import FormValidator from '../components/FormValidator.js';
 
+// Селектор кнопки открытия формы редактирования профиля
+const buttonInfoEdit = document.querySelector('.profile__button-info-edit');
+// Селектор кнопки открытия формы добавления места
+const buttonAddCard = document.querySelector('.add-button');
+// Селекторы формы редактирования профиля
+const formName = document.querySelector('.form__input_edit_name');
+const formJob = document.querySelector('.form__input_edit_job');
+const formEditForm = document.querySelector('.form_edit-form');
+// Селекторы формы добавления карточки
+const popupAddCard = '.popup_act_add-card';
+const popupAddForm = document.querySelector('.form_add-form');
+
 import {
   initialCards,
   cardsContainer,
-  // templateCards,
-  // popupPhotoCards,
-  // imageCards,
-  // subtitleCards,
-  buttonInfoEdit,
-  buttonAddCard,
-  // popupEditProfile,
-  // profileName,
-  // profileJob,
-  formName,
-  formJob,
-  formEditForm,
-  popupAddCard,
-  // formInputCardTitle,
-  // formInputCardLinkImage,
-  popupAddForm,
-  // buttonSave,
-  // buttonCreate,
-  // buttonCloseEditProfile,
-  // buttonCloseAddCard,
-  // buttonClosePhotoCards,
 } from '../utils/constants.js';
 
 //Информация о пользователе из HTML
@@ -61,9 +52,8 @@ cardList.renderItems();
 const popupFormEditProfile = new PopupWithForm({
   popupSelector: '.popup_act_edit-profile',
   submitForm: (data) => {
-    console.log('data', data)
     userInfo.setUserInfo(data);
-    popupFormEditProfile.closePopup()
+    popupFormEditProfile.closePopup();
   }
 });
 
@@ -86,7 +76,6 @@ const popupImage = new PopupWithImage({
 
 popupFormEditProfile.setEventListeners();
 popupFormAddCard.setEventListeners();
-popupFormAddCard.handleButtonClose();
 
 function createCard(item) {
   const card = new Card(item, '.card-template', handleCardImageClick);
@@ -116,16 +105,6 @@ function handleEditModalOpen() {
 function handleAddCardModalOpen() {
   addCardValidator.resetValidation();
   popupFormAddCard.openPopup();
-}
-
-// Удаление сообщения об ошибке
-function removeError(form, config) {
-  const inputList = form.querySelectorAll(config.inputSelector);
-  inputList.forEach(input => {
-    const error = document.querySelector(`#${input.id}-error`);
-    error.textContent = "";
-    input.classList.remove(config.inputErrorClass);
-  });
 }
 
 // Валидация форм
