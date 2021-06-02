@@ -1,16 +1,14 @@
 export default class UserInfo {
-    constructor({
-        userNameSelector,
-        userInfoSelector
-    }) {
+    constructor({ userNameSelector, userInfoSelector, userAvatarSelector }) {
         this._userName = document.querySelector(userNameSelector);
         this._userInfo = document.querySelector(userInfoSelector);
+        this._userAvatar = document.querySelector(userAvatarSelector);
     }
 
     getUserInfo() {
         const userInfo = {
             name: this._userName.textContent,
-            job: this._userInfo.textContent
+            "about-myself": this._userInfo.textContent
         }
 
         return userInfo
@@ -18,6 +16,7 @@ export default class UserInfo {
 
     setUserInfo(userData) {
         this._userName.textContent = userData.name;
-        this._userInfo.textContent = userData.job;
+        this._userInfo.textContent = userData.about;
+        this._userAvatar.src = userData.avatar;
     }
 }
