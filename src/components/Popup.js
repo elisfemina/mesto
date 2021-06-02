@@ -1,42 +1,44 @@
 export default class Popup {
-    constructor(popupSelector) { //
-        this._popup = document.querySelector(popupSelector);
+    constructor({ popupSelector }) {
+        this._popupSelector = popupSelector;
+        this._popup = document.querySelector(this._popupSelector);
         this._handleEscClose = this._handleEscClose.bind(this);
-        this._handleOverlayClose = this._handleOverlayClose.bind(this);
+        this._handleOverlayClose = this._handleOverlayClose.bind(this)
     }
 
-    //Opens popup
-    openPopup() {
+    //открытие попапа
+    open() {
         this._popup.classList.add('popup_opened');
         document.addEventListener('keydown', this._handleEscClose);
-        this._popup.addEventListener('click', this._handleOverlayClose);
+        this._popup.addEventListener('mousedown', this._handleOverlayClose);
     }
 
-    // Closes popup
-    closePopup() {
+    //закрытие попапа
+    close() {
         this._popup.classList.remove('popup_opened');
         document.removeEventListener('keydown', this._handleEscClose);
-        this._popup.removeEventListener('click', this._handleOverlayClose);
+        this._popup.removeEventListener('mousedown', this._handleOverlayClose);
     }
 
-    // Closing popup by button Escape
+    // Закрытие на кнопку esc
     _handleEscClose(evt) {
-        if (evt.key === 'Escape') {
-            this.closePopup();
+        if (evt.keyCode === 27) {
+            this.close();
         }
     }
 
-    // Closing popup by clicking on overlay
+    // Закрытие по оверлею
     _handleOverlayClose(evt) {
         if (evt.target.classList.contains('popup_opened')) {
-            this.closePopup();
+            this.close();
         }
     }
 
-    // Closing popup by clicking on close button
     setEventListeners() {
-        this._popup
-            .querySelector('.popup__close-button')
-            .addEventListener('click', () => this.closePopup());
+        const button = this._popup.querySelector('.popup__close-button');
+
+        //Закрытие на "крестик"
+        button.addEventListener('click', () => this.close());
     }
+
 }

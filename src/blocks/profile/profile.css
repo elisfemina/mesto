@@ -1,19 +1,20 @@
 .profile {
-  display: grid;
-  grid-template-columns: 1fr;
-  font-family: 'Inter',
-    'Arial',
-    'sans-serif';
-  font-style: normal;
-  color: #fff;
-  justify-items: center;
-  align-items: center;
-  max-width: 55rem;
+    margin: 42px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 880px;
 }
 
-@media (min-width: 768px) {
-  .profile {
-    grid-template-columns: max-content max-content 1fr;
-    padding: 0;
-  }
+@media screen and (min-width: 700px) {
+    .profile {
+        width: 581px;
+        flex-direction: row;
+    }
+}
+
+@media screen and (min-width: 930px) {
+    .profile {
+        width: 880px;
+    }
 }
