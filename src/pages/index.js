@@ -76,6 +76,7 @@ const popupImage = new PopupWithImage({
 
 popupFormEditProfile.setEventListeners();
 popupFormAddCard.setEventListeners();
+popupImage.setEventListeners();
 
 function createCard(item) {
   const card = new Card(item, '.card-template', handleCardImageClick);
